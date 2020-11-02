@@ -1,0 +1,28 @@
+﻿<div class="card mt-4">
+    <h4 class="card-header">
+        <h4>Voter Details</h4>
+    </h4>
+    <div class="card-body">
+        <h6>Name: {{currentUser.firstName}}  {{currentUser.lastName}}</h6>
+        <h6>Aadhar Number: {{currentUser.id}}</h6>
+    </div>
+</div>
+<br/>
+<div>
+   <h4>Nominees</h4>
+</div>
+<div *ngIf="nominees">
+    <div *ngFor="let nominee of nominees">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{nominee.firstName}} {{nominee.lastName}}</h5>
+                <p class="card-text">Party Name: {{nominee.partyName}} {{nominee.state}}</p>
+                <p class="card-text">Ward Number: {{nominee.wardNumber}}</p>
+                <p class="card-text">Constituency: {{nominee.constituency}}</p>
+                <p class="card-text">State: {{nominee.state}}</p>
+                <span class="btn btn-primary" (click)="voteIn(currentUser, nominee)">Vote</span>
+            </div>
+        </div><br/>
+    </div>
+</div>
+<div *ngIf="!nominees">No Nominations</div>
